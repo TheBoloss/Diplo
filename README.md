@@ -10,6 +10,8 @@ Diplo language works with pointer and values.
 - [Interpreter](Interpreter.md) creates an array of 65536 cases.
 - Each case has its own value that can be changed in the program (0 by default). The pointer designates the selected case.
 
+**Diplo is not case sensitive, so ```Insert``` is the same as ```Insert``` or ```insert```.**
+
 # Pointer statements
 
 By default, pointer is initialized to 0.
@@ -55,113 +57,157 @@ By default, value is initialized to 0.
 
 Minimum value is 0 and maximum value is 255.
 
-Value statements begin with ```INSERT```.
+Value statements begin with ```Insert```.
 
 ## Increment or decrement value
 
 ### Add/remove 1
 
-Use ```INSERT +``` to add 1 or ```INSERT -``` to remove 1.
+Use ```Insert +``` to add 1 or ```Insert -``` to remove 1.
 
 ```jsx
-INSERT +
-INSERT -
+Insert +
+Insert -
 ```
 
 ### Add/remove custom
 
-Use ```INSERT +N``` to add N or ```INSERT -N``` to remove N, with N integer.
+Use ```Insert +N``` to add N or ```Insert -N``` to remove N, with N integer.
 
 ```jsx
-INSERT +3
-INSERT -5
+Insert +3
+Insert -5
 ```
 
 ## Set value to specific
 
-Use ```INSERT N``` to set value to N, with N integer between 0 and 255.
+Use ```Insert N``` to set value to N, with N integer between 0 and 255.
 
 ```jsx
-INSERT 32
+Insert 32
 ```
 
 # Console statements
 
 ## Out statement
 
-Use ```OUT```.
+Use ```Out```.
 
 Prints the corresponding ASCII character of pointed value to the console.
 
 ```jsx
-INSERT 97
-OUT
+Insert 97
+Out
 ```
 
 ## Get statement
 
-Use ```GET```.
+Use ```Get```.
 
 Prompt user for a character in the console.
 
 ```jsx
-GET
-INSERT +
-OUT
+Get
+Insert +
+Out
 ```
 
 # Loop statements
 
 Loop statements are 3 parts:
-- Opening with ```BEGIN <LoopName> [Arguments]```
+- Opening with ```Begin <LoopName> [Arguments]```
 - Loop content
-- Closing with ```END <LoopName>```
+- Closing with ```End <LoopName>```
 
 ## If
 
-Use if loop with ```IF```.
+Use if loop with ```If```.
 
 Executes content if pointed value is different from 0.
 
 ```jsx
-BEGIN IF
-    INSERT 0
-END IF
+Begin If
+    Insert 0
+End If
 ```
 
 ## If not
 
-Use if not loop with ```IFNOT```.
+Use if not loop with ```IfNot```.
 
 Executes content if pointed value is equal to 0.
 
 ```jsx
-BEGIN IFNOT
-    INSERT +
-END IFNOT
+Begin IfNot
+    Insert +
+End IfNot
 ```
 
 ## Repeat
 
-Use repeat loop with ```REPEAT N```, with N positive integer.
+Use repeat loop with ```Repeat N```, with N positive integer.
 
 Executes the content N times.
 
 ```jsx
-BEGIN REPEAT 10
-    INSERT +
-    OUT
-END REPEAT
+Begin Repeat 10
+    Insert +
+    Out
+End Repeat
 ```
 
 ## Stretch
 
-Use stretch loop with ```STRETCH N M```, with N and M positive integers.
+Use stretch loop with ```Stretch N M```, with N and M positive integers.
 
 Goes from N pointer to M pointer and execute content.
 
 ```jsx
-BEGIN STRETCH 0 5
-    OUT
-END STRETCH
+Begin Stretch 0 5
+    Out
+End Stretch
 ```
+
+# Pre-execution statements
+
+Pre-execution statements start with ```#```. They are used to set parameters about program execution.
+
+- ## ```#TITLE <Name>```
+    Sets the program title to \<Name>.
+    ```jsx
+    #TITLE Diplo program!
+    ```
+- ## ```#DEBUG```
+    Enables execution debug.
+    ```jsx
+    #DEBUG
+    ```
+- ## ```#DMPMEM```
+    Dumps program data array to ```./diplo_dump.json``` file.
+    
+    **⚠️ Warning: the ```#DEBUG``` pre-execution statement has to be specified before any ```#DMPMEM```.** 
+    ```jsx
+    #DEBUG
+    Insert +
+    #DMPMEM
+    ```
+
+# Comments
+
+Use ```//``` to comment your code.
+
+```jsx
+Insert 97 // 'a' in ASCII
+Out // Display pointed value
+```
+
+# Program examples
+
+- ## Print entire alphabet
+    ```jsx
+    Insert 97
+    Begin Repeat 26
+        Out
+        Insert +
+    End Repeat
+    ```
