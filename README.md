@@ -18,34 +18,34 @@ By default, pointer is initialized to 0.
 
 Minimum value is 0 and maximum value is 65535.
 
-Pointer statements begin with ```PTR```.
+Pointer statements begin with ```Ptr```.
 
 ## Increment or decrement pointer
 
 ### Add/remove 1
 
-Use ```PTR +``` to add 1 or ```PTR -``` to remove 1.
+Use ```Ptr +``` to add 1 or ```Ptr -``` to remove 1.
 
 ```jsx
-PTR +
-PTR -
+Ptr +
+Ptr -
 ```
 
 ### Add/remove custom
 
-Use ```PTR +N``` to add N or ```PTR -N``` to remove N, with N integer.
+Use ```Ptr +N``` to add N or ```Ptr -N``` to remove N, with N integer.
 
 ```jsx
-PTR +3
-PTR -5
+Ptr +3
+Ptr -5
 ```
 
 ## Set pointer to specific
 
-Use ```PTR N``` to set pointer to N, with N integer between 0 and 65535.
+Use ```Ptr N``` to set pointer to N, with N integer between 0 and 65535.
 
 ```jsx
-PTR 32
+Ptr 32
 ```
 
 
