@@ -1,4 +1,4 @@
-![](Logo256.png)
+![](assets/Logo256.png)
 # Diplo Language
 
 ----
