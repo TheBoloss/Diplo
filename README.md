@@ -211,3 +211,10 @@ Out // Display pointed value
         Insert +
     End Repeat
     ```
+
+#
+#
+
+---
+
+2022. Eugène Villotte ([TheBoloss](https://github.com/TheBoloss))
