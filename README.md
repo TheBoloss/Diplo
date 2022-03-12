@@ -1,10 +1,20 @@
+![](Logo256.png)
+# Diplo Language
+
+----
+
 # Principle and operation
+
+Diplo language works with pointer and values.
+
+- [Interpreter](Interpreter.md) creates an array of 65536 cases.
+- Each case has its own value that can be changed in the program (0 by default). The pointer designates the selected case.
 
 # Pointer statements
 
 By default, pointer is initialized to 0.
 
-Minimum value is 0 and maximum value is 65536.
+Minimum value is 0 and maximum value is 65535.
 
 Pointer statements begin with ```PTR```.
 
@@ -30,7 +40,7 @@ PTR -5
 
 ## Set pointer to specific
 
-Use ```PTR N``` to set pointer to N, with N integer between 0 and 65536.
+Use ```PTR N``` to set pointer to N, with N integer between 0 and 65535.
 
 ```jsx
 PTR 32
