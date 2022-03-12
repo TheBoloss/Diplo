@@ -212,8 +212,6 @@ Out // Display pointed value
     End Repeat
     ```
 
-#
-#
 
 ---
 
