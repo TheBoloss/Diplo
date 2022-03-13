@@ -10,7 +10,7 @@ Diplo language works with pointer and values.
 - [Interpreter](Interpreter.md) creates an array of 65536 cases.
 - Each case has its own value that can be changed in the program (0 by default). The pointer designates the selected case.
 
-**Diplo is not case sensitive, so ```Insert``` is the same as ```Insert``` or ```insert```.**
+**Diplo is not case sensitive, so ```INSERT``` is the same as ```Insert``` or ```insert```.**
 
 # Pointer statements
 
@@ -168,9 +168,9 @@ Begin Stretch 0 5
 End Stretch
 ```
 
-# Pre-execution statements
+# Beside-execution statements
 
-Pre-execution statements start with ```#```. They are used to set parameters about program execution.
+Beside-execution statements start with ```#```. They are used to set parameters about program execution.
 
 - ## ```#TITLE <Name>```
     Sets the program title to \<Name>.
@@ -185,11 +185,16 @@ Pre-execution statements start with ```#```. They are used to set parameters abo
 - ## ```#DMPMEM```
     Dumps program data array to ```./diplo_dump.json``` file.
     
-    **⚠️ Warning: the ```#DEBUG``` pre-execution statement has to be specified before any ```#DMPMEM```.** 
+    **⚠️ Warning: the ```#DEBUG``` beside-execution statement has to be specified before any ```#DMPMEM```.** 
     ```jsx
     #DEBUG
     Insert +
     #DMPMEM
+    ```
+- ## ```#EXECTIME```
+    Prints the execution time at the end of the program.
+    ```jsx
+    #TITLE Diplo program!
     ```
 
 # Comments
@@ -215,4 +220,4 @@ Out // Display pointed value
 
 ---
 
-2022. Eugène Villotte ([TheBoloss](https://github.com/TheBoloss))
+2022. Eugène Villotte *([TheBoloss](https://github.com/TheBoloss))*
