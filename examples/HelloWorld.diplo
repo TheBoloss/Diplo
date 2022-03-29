@@ -1,0 +1,11 @@
+Pointer 0
+InsertL "Hello World!"
+// Equivalent to:
+Pointer 0
+InsertL 72, 101, 108, 108, 111, 32, 87 ,111, 114, 108, 100, 33
+
+Label PrintLoop
+    Out
+    Pointer +
+    CompP 12 // Compare Pointer and 12
+JumpNE PrintLoop // Jump to PrintLoop if cond is not equal
