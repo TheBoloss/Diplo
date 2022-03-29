@@ -197,6 +197,8 @@ Beside-execution statements start with ```#```. They are used to set parameters 
     #TITLE Diplo program!
     ```
 
+# Error codes
+
 # Comments
 
 Use ```//``` to comment your code.
