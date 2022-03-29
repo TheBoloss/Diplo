@@ -7,5 +7,16 @@ InsertL 72, 101, 108, 108, 111, 32, 87 ,111, 114, 108, 100, 33
 Label PrintLoop
     Out
     Pointer +
-    CompP 12 // Compare Pointer and 12
+    CompP 12 // Compare Pointer (a) to 12 (b)
 JumpNE PrintLoop // Jump to PrintLoop if cond is not equal
+
+
+// CompP          compare pointer to [arg]
+// CompV          compare value to [arg]
+
+// JumpEq         a == b
+// JumpNotEq      a != b
+// JumpGreater    a >  b
+// JumpGreaterEq  a >= b
+// JumpLess       a <  b
+// JumpLessEq     a <= b
