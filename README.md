@@ -1,9 +1,11 @@
-![](assets/Logo256.png)
+<img src="assets/Banner.png" width="100%">
+
 # Diplo Language
+---
 
-----
+# Documentation
 
-# Principle and operation
+## Principle and operation
 
 Diplo language works with pointer and values.
 
@@ -12,44 +14,45 @@ Diplo language works with pointer and values.
 
 **Diplo is not case sensitive, so ```INSERT``` is the same as ```Insert``` or ```insert```.**
 
-# Pointer statements
+## Format
+
+Statements can take arguments as follow:
+
+```<Required> [Optional1|Optional2]```
+
+```diplo
+<Statement> [Arg1], [Arg2], ...
+```
+
+## Pointer statements
 
 By default, pointer is initialized to 0.
 
 Minimum value is 0 and maximum value is 65535.
 
-Pointer statements begin with ```Ptr```.
+### Syntax
 
-## Increment or decrement pointer
-
-### Add/remove 1
-
-Use ```Ptr +``` to add 1 or ```Ptr -``` to remove 1.
-
-```jsx
-Ptr +
-Ptr -
+```diplo
+Pointer <AbsoluteValue|RelativeValue>
 ```
 
-### Add/remove custom
+- With ```AbsoluteValue``` unsigned integer.
+- With ```RelativeValue``` '+' or '-' + [unsigned integer].
 
-Use ```Ptr +N``` to add N or ```Ptr -N``` to remove N, with N integer.
+### Example
 
-```jsx
-Ptr +3
-Ptr -5
+```diplo
+Pointer 10  // Sets pointer to 10
+Pointer 0   // Set pointer to 0
+
+Pointer +   // Adds 1 to pointer (increments pointer)
+Pointer +2  // Adds 2 to pointer
+
+Pointer -   // Removes 1 to pointer (decrements pointer)
+Pointer -5  // Removes 5 to pointer
 ```
 
-## Set pointer to specific
-
-Use ```Ptr N``` to set pointer to N, with N integer between 0 and 65535.
-
-```jsx
-Ptr 32
-```
-
-
-# Value statements
+## Value statements
 
 This section shows how to change the pointed value.
 
@@ -57,169 +60,185 @@ By default, value is initialized to 0.
 
 Minimum value is 0 and maximum value is 255.
 
-Value statements begin with ```Insert```.
+### Syntax
 
-## Increment or decrement value
-
-### Add/remove 1
-
-Use ```Insert +``` to add 1 or ```Insert -``` to remove 1.
-
-```jsx
-Insert +
-Insert -
+```diplo
+Insert <AbsoluteValue|RelativeValue>
 ```
 
-### Add/remove custom
+- With ```AbsoluteValue``` unsigned integer.
+- With ```RelativeValue``` '+' or '-' + [unsigned integer].
 
-Use ```Insert +N``` to add N or ```Insert -N``` to remove N, with N integer.
+### Example
 
-```jsx
-Insert +3
-Insert -5
+```diplo
+Insert 10  // Sets value to 10
+Insert 0   // Set value to 0
+
+Insert +   // Adds 1 to value (increments value)
+Insert +2  // Adds 2 to value
+
+Insert -   // Removes 1 to value (decrements value)
+Insert -5  // Removes 5 to value
 ```
 
-## Set value to specific
+## Console statements
 
-Use ```Insert N``` to set value to N, with N integer between 0 and 255.
+### ```Out``` statement
 
-```jsx
-Insert 32
+Prints the corresponding [ASCII](https://www.asciitable.com/) character of pointed value to the console.
+
+#### Syntax
+
+```diplo
+Out
 ```
 
-# Console statements
+#### Example
 
-## Out statement
-
-Use ```Out```.
-
-Prints the corresponding ASCII character of pointed value to the console.
-
-```jsx
+```diplo
 Insert 97
 Out
+// Prints 'a'
 ```
 
-## Get statement
+### ```Get``` statement
 
-Use ```Get```.
+Prompt user for a character in the console and puts it into pointed value.
 
-Prompt user for a character in the console.
+#### Syntax
 
-```jsx
+```diplo
 Get
-Insert +
+```
+
+#### Example
+
+```diplo
+Get
 Out
+// Prints the character user entered.
 ```
 
-# Loop statements
+## Exit statement
 
-Loop statements are 3 parts:
-- Opening with ```Begin <LoopName> [Arguments]```
-- Loop content
-- Closing with ```End <LoopName>```
+### Syntax
 
-## If
-
-Use if loop with ```If```.
-
-Executes content if pointed value is different from 0.
-
-```jsx
-Begin If
-    Insert 0
-End If
+```diplo
+Exit <ErrorCode>
 ```
 
-## If not
+With ```ErrorCode``` integer corresponding to program exit code.
 
-Use if not loop with ```IfNot```.
+### Example
 
-Executes content if pointed value is equal to 0.
-
-```jsx
-Begin IfNot
-    Insert +
-End IfNot
+```diplo
+Exit 0
+// No error
 ```
 
-## Repeat
+## Comparisons
 
-Use repeat loop with ```Repeat N```, with N positive integer.
+Compares 2 values.
 
-Executes the content N times.
+Comparison result can be used in **Conditional jumps** (see below).
 
-```jsx
-Begin Repeat 10
-    Insert +
+### Syntax
+
+```diplo
+Comp <Value1>, <Value2>
+```
+
+With ```Value1``` and ```Value2``` integers or **variables**.
+
+### Variables
+
+- ```$value``` returns the pointed value.
+- ```$pointer``` returns the pointer value.
+
+### Example
+
+```diplo
+Comp $value, 97
+JumpGreaterEq isLetter
+Exit 0
+
+Label isLetter
+// Code if is letter
+```
+
+## Labels and jumps
+
+Labels can be defined to mark a specific place in the program and to create loops.
+
+### Syntax
+
+```diplo
+Label <LabelName>
+```
+
+Defines the label '\<LabelName>'.
+
+With ```LabelName``` char string containing only [a-z A-Z 0-9].
+
+```diplo
+Jump <LabelName>
+```
+
+Jumps to label '\<LabelName>'.
+
+#### Conditional jumps
+
+*Using ```a``` and ```b``` as arguments of last condition:*
+
+-
+    ```JumpEq <LabelName>```
+    Jumps to label '\<LabelName>' if a == b.
+
+-
+    ```JumpNotEq <LabelName>```
+    Jumps to label '\<LabelName>' if a != b.
+
+-
+    ```JumpGreater <LabelName>```
+    Jumps to label '\<LabelName>' if a > b.
+
+-
+    ```JumpGreaterEq <LabelName>```
+    Jumps to label '\<LabelName>' if a >= b.
+
+-
+    ```JumpLess <LabelName>```
+    Jumps to label '\<LabelName>' if a < b.
+
+-
+    ```diploJumpLessEq <LabelName>```
+    Jumps to label '\<LabelName>' if a <= b.
+
+
+### Example
+
+```diplo
+Insert 97
+Label loop
     Out
-End Repeat
+Jump loop
+// Prints 'a' forever.
 ```
 
-## Stretch
-
-Use stretch loop with ```Stretch N M```, with N and M positive integers.
-
-Goes from N pointer to M pointer and execute content.
-
-```jsx
-Begin Stretch 0 5
-    Out
-End Stretch
-```
-
-# Beside-execution statements
-
-Beside-execution statements start with ```#```. They are used to set parameters about program execution.
-
-- ## ```#TITLE <Name>```
-    Sets the program title to \<Name>.
-    ```jsx
-    #TITLE Diplo program!
-    ```
-- ## ```#DEBUG```
-    Enables execution debug.
-    ```jsx
-    #DEBUG
-    ```
-- ## ```#DMPMEM```
-    Dumps program data array to ```./diplo_dump.json``` file.
-    
-    **⚠️ Warning: the ```#DEBUG``` beside-execution statement has to be specified before any ```#DMPMEM```.** 
-    ```jsx
-    #DEBUG
-    Insert +
-    #DMPMEM
-    ```
-- ## ```#EXECTIME```
-    Prints the execution time at the end of the program.
-    ```jsx
-    #TITLE Diplo program!
-    ```
-
-# Error codes
-
-# Comments
+## Comments
 
 Use ```//``` to comment your code.
 
-```jsx
-Insert 97 // 'a' in ASCII
-Out // Display pointed value
+### Example
+
+```diplo
+Insert 1
+// This is a comment!
 ```
 
-# Program examples
-
-- ## Print entire alphabet
-    ```jsx
-    Insert 97
-    Begin Repeat 26
-        Out
-        Insert +
-    End Repeat
-    ```
-
-
 ---
+
+<img src="assets/Logo256.png" width="50">
 
 2022. Eugène Villotte *([TheBoloss](https://github.com/TheBoloss))*
