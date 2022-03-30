@@ -69,17 +69,29 @@ Insert <AbsoluteValue|RelativeValue>
 - With ```AbsoluteValue``` unsigned integer.
 - With ```RelativeValue``` '+' or '-' + [unsigned integer].
 
+Changes the pointed value.
+
+```diplo
+InsertL <AbsoluteValue1>, [AbsoluteValue1], [...]
+```
+
+- With ```AbsoluteValue1```, ```AbsoluteValue2```... unsigned integers.
+
+Changes to pointed value to ```AbsoluteValue1``` and next pointed value to ```AbsoluteValue2```, etc...
+
 ### Example
 
 ```diplo
 Insert 10  // Sets value to 10
-Insert 0   // Set value to 0
+Insert 0   // Sets value to 0
 
 Insert +   // Adds 1 to value (increments value)
 Insert +2  // Adds 2 to value
 
 Insert -   // Removes 1 to value (decrements value)
 Insert -5  // Removes 5 to value
+
+InsertL 97, 98, 99 // Sets pointed then next values to 'a', 'b' and 'c' -> "abc"
 ```
 
 ## Console statements
@@ -236,6 +248,24 @@ Use ```//``` to comment your code.
 Insert 1
 // This is a comment!
 ```
+
+# Program examples
+
+- ## Hello World
+    ```diplo
+    InsertL 72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100, 33
+    // Registers "Hello World!"
+
+    Label PrintLoop
+        Out
+        Pointer +
+        Comp $value, 0
+        // Prints char until string ends (0x00)
+    JumpNotEq PrintLoop
+    // If string does not end, prints the next char
+    Exit 0
+    // Exits program properly
+    ```
 
 ---
 
