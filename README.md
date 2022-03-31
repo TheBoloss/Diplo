@@ -224,7 +224,7 @@ Jumps to label '\<LabelName>'.
     Jumps to label '\<LabelName>' if a < b.
 
 -
-    ```diploJumpLessEq <LabelName>```
+    ```JumpLessEq <LabelName>```
     Jumps to label '\<LabelName>' if a <= b.
 
 
