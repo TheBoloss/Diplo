@@ -81,12 +81,19 @@ Insert <AbsoluteValue|RelativeValue>
 ```
 
 - With ```AbsoluteValue``` unsigned integer.
-- With ```RelativeValue``` '+' or '-' + [unsigned integer].
+- With ```RelativeValue``` as follow:
+    - ```+n``` to add ```n``` to value
+    - ```-n``` to remove ```n``` to value
+    - ```*n``` to multiply value by ```n```
+    - ```/n``` to divide value by ```n``` (integer division)
+    - ```%n``` to set value to value modulo ```n```
 
 Changes the pointed value.
 
+### Insert a list of values
+
 ```diplo
-InsertL <AbsoluteValue1>, [AbsoluteValue1], [...]
+InsertL <AbsoluteValue1>, [AbsoluteValue2], [...]
 ```
 
 - With ```AbsoluteValue1```, ```AbsoluteValue2```... unsigned integers.
@@ -104,6 +111,10 @@ Insert +2  // Adds 2 to value
 
 Insert -   // Removes 1 to value (decrements value)
 Insert -5  // Removes 5 to value
+
+Insert *2  // Multiplies pointed value by 2
+Insert /2  // Divides
+Insert %2  // Sets value to value%2
 
 InsertL 97, 98, 99 // Sets pointed then next values to 'a', 'b' and 'c' -> "abc"
 ```
