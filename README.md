@@ -267,18 +267,18 @@ Insert 1
 
 - ## Hello World
     ```diplo
+    // Register "Hello World!"
     InsertL 72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100, 33
-    // Registers "Hello World!"
 
+    // Print char until string ends (0x00)
     Label PrintLoop
         Out
         Pointer +
         Comp $value, 0
-        // Prints char until string ends (0x00)
-    JumpNotEq PrintLoop
     // If string does not end, prints the next char
-    Exit 0
+    JumpNotEq PrintLoop
     // Exits program properly
+    Exit 0
     ```
 
 ---
