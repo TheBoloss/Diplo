@@ -3,6 +3,20 @@
 # Diplo Language
 ---
 
+## Table of contents
+- [Documentation](#documentation)
+    - [Principle and operation](#principle-and-operation)
+    - [Format](#format)
+    - [Pointer statements](#pointer-statements)
+    - [Value statements](#value-statements)
+    - [Console statements](#console-statements)
+    - [Exit statement](#exit-statement)
+    - [Comparisons](#comparisons)
+    - [Labels and jumps](#labels-and-jumps)
+    - [Comments](#comments)
+- [Program examples](#program-examples)
+    - [Hello World](#hello-world)
+
 # Documentation
 
 ## Principle and operation
