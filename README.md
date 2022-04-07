@@ -274,6 +274,25 @@ Insert 1
 // This is a comment!
 ```
 
+# Errors
+
+## Error format
+
+Diplo errors are 32 bits based hexadecimal numbers.
+
+![Errors Format](assets/Diplo_Errors_Format.png)
+
+- 15 bits for the line where error occured.
+- 10 bits for the error detail (eg: Expected argument).
+- 6 bits for the error type/domain (eg: Argument error).
+- 1 bit (bool) for the error fatality (was the program halted?).
+
+### Error example
+
+```
+DIPLO_ERR:0x20083
+```
+
 # Program examples
 
 - ## Hello World
