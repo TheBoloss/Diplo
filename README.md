@@ -287,11 +287,10 @@ Diplo errors are 32 bits based hexadecimal numbers.
 - 6 bits for the error type/domain (eg: Argument error).
 - 1 bit (bool) for the error fatality (was the program halted?).
 
-### Error example
+## Error example
 
-```
-DIPLO_ERR:0x20083
-```
+### ```DIPLO_ERR:0x20083```
+- **0x20083** *(hex*) is 0b
 
 # Program examples
 
