@@ -4,7 +4,11 @@
 ---
 
 ## Table of contents
-- [Documentation](#documentation)
+- ### [🔢 Interpreter](#interpreter)
+    - [Downloads](#downloads)
+    - [Source](#source)
+    - [License](#license)
+- ### [📖 Documentation](#documentation)
     - [Principle and operation](#principle-and-operation)
     - [Format](#format)
     - [Pointer statements](#pointer-statements)
@@ -14,8 +18,32 @@
     - [Comparisons](#comparisons)
     - [Labels and jumps](#labels-and-jumps)
     - [Comments](#comments)
-- [Program examples](#program-examples)
+- ### [❌ Errors](#errors)
+    - [Error format](#error-format)
+- ### [📃 Program examples](#program-examples)
     - [Hello World](#hello-world)
+
+---
+
+# Interpreter
+
+*DiploInterpreter is currently under development.*
+
+## Downloads
+
+*No downloads available for now.*
+
+## Source
+
+Refer to [TheBoloss/DiploInterpreter](https://github.com/TheBoloss/DiploInterpreter) to consult source.
+
+## License
+
+![](https://licensebuttons.net/l/by-nc-nd/3.0/88x31.png)
+
+The DiploInterpreter project is licensed under a **Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License *(CC BY-NC-ND 4.0)***. [See License file](https://github.com/TheBoloss/DiploInterpreter/blob/master/LICENSE)
+
+---
 
 # Documentation
 
@@ -274,6 +302,8 @@ Insert 1
 // This is a comment!
 ```
 
+---
+
 # Errors
 
 ## Error format
@@ -287,10 +317,12 @@ Diplo errors are 32 bits based hexadecimal numbers.
 - 6 bits for the error type/domain (eg: Argument error).
 - 1 bit (bool) for the error fatality (was the program halted?).
 
-## Error example
+<!-- ## Error example
 
 ### ```DIPLO_ERR:0x20083```
-- **0x20083** *(hex*) is 0b
+- **0x20083** *(hex*) is 0b -->
+
+---
 
 # Program examples
 
