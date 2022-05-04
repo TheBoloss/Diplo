@@ -22,10 +22,16 @@
     - [Error format](#error-format)
 - ### [📃 Program examples](#program-examples)
     - [Hello World](#hello-world)
+- ### [🎨 Syntax highlighting](#syntax-highlighting)
+    - [Visual Studio Code extension](#visual-studio-code-extension)
 
 ---
 
+![Code](assets/Code.png)
+
 # Interpreter
+
+## **[Interpreter Doc](Interpreter.md)**
 
 *DiploInterpreter is currently under development.*
 
@@ -341,6 +347,16 @@ Diplo errors are 32 bits based hexadecimal numbers.
     // Exits program properly
     Exit 0
     ```
+
+# Syntax highlighting
+
+## Visual Studio Code extension
+
+A syntax highlighting extension for VS Code is available.
+
+[Download **Diplo Language**](https://marketplace.visualstudio.com/items?itemName=TheBoloss.diplo-lang) *(ID: TheBoloss.diplo-lang)*
+
+![Code in VS Code](assets/Code-VSCode.png)
 
 ---
 
