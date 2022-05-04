@@ -28,5 +28,5 @@ Config flags are used to configure execution behavior.
 
 ## List
 - ```e```: Exit program without waiting for a keypress.
-- ```t```: Exit program without displaying execution time.
+- ```t```: Exit program displaying execution time.
 - ```d```: Enable debug.
